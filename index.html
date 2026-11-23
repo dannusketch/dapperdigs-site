@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dapper Digs — Katalog</title>
+<meta name="description" content="Katalog thrift Dapper Digs. Tiap piece cuma ada satu.">
+<meta property="og:title" content="Dapper Digs — Katalog">
+<meta property="og:description" content="Katalog thrift Dapper Digs. Tiap piece cuma ada satu.">
+<meta property="og:image" content="logo.jpeg">
+<link rel="icon" href="logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<script>
+/* ===================== PENGATURAN — CUKUP EDIT BAGIAN INI ===================== */
+const CONFIG = {
+  // Link CSV dari Google Sheets: File > Bagikan > Publikasikan ke web > format CSV
+  SHEET_CSV: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQMiVu1pYpz-lJMhjsUIvAkPGGwAp-q_11N3W9swGCtqxmpK6HaDF1oOe5Wmn5ZnUXQUJM-5XsAnUlQ/pub?gid=0&single=true&output=csv',
+  // Nomor WhatsApp, boleh diawali 0 (contoh: 081234567890)
+  WA: '088221977776',
+  // Link toko Shopee, harus diawali https://
+  SHOPEE: 'https://shopee.co.id/dapperdigs.stuff',
+  // Username Instagram tanpa @
+  IG: 'dapperdigs.stuff',
+  // Nama file logo landscape asli yang kamu upload
+  LOGO: 'logo.jpeg',
+  // Folder tempat foto produk
+  FOTO_FOLDER: 'foto/'
+};
+/* ============================================================================ */
+</script>
+<style>
+:root{color-scheme:light;--bg:#F3EBDD;--ink:#111111;--muted:#3A362F;--ph:#CFC8BC}
+*{box-sizing:border-box;min-width:0}
+html.lock body{overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:max(4vw,16px)}
+.row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.top{border-bottom:1.5px solid var(--ink)}
+.top .row{padding-block:14px}
+.logo{height:52px;width:auto;max-width:100%;display:block}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:600 15px/1 Inter,sans-serif;text-decoration:none;white-space:nowrap}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:focus-visible,.pic:focus-visible,.x:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.hero{padding-block:clamp(36px,6vw,80px) clamp(20px,3vw,32px)}
+.handle{margin:0 0 8px;font-size:15px;font-weight:600;color:var(--muted)}
+h1{margin:0;font:700 clamp(44px,7vw,96px)/.95 'Space Grotesk',sans-serif;letter-spacing:-.02em;text-transform:uppercase}
+.lede{max-width:56ch;margin:18px 0 0;font-size:17px;color:var(--muted)}
+.main{padding-bottom:80px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:36px 20px;border-top:1.5px solid var(--ink);padding-top:24px}
+@media(max-width:600px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 12px}}
+.card{display:flex;flex-direction:column;gap:4px}
+.pic{position:relative;display:block;width:100%;aspect-ratio:3/4;padding:0;border:0;border-radius:0;background:var(--ph);cursor:pointer;overflow:hidden}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+.ph{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;color:var(--muted)}
+.tag{position:absolute;top:10px;left:10px;background:var(--ink);color:var(--bg);font:600 12px/1 Inter,sans-serif;padding:6px 8px}
+.card h3{margin:10px 0 0;font-size:16px;font-weight:600;line-height:1.3}
+.meta{margin:0;font-size:14px;color:var(--muted)}
+.empty{grid-column:1/-1;padding:40px 0;color:var(--muted);font-size:17px}
+.foot{background:var(--ink);color:var(--bg)}
+.foot .row{padding-block:56px;align-items:flex-end}
+.foot h2{margin:0;font:700 clamp(28px,4vw,44px)/1 'Space Grotesk',sans-serif;text-transform:uppercase}
+.foot p{margin:8px 0 0;color:#D8D0C2}
+.foot .btn{border-color:var(--bg);color:var(--bg)}
+.foot .btn.solid{background:var(--bg);color:var(--ink)}
+.foot .btn:focus-visible{outline-color:var(--bg)}
+.ov{position:fixed;inset:0;z-index:20;background:rgb(0 0 0/.55);display:flex;align-items:flex-end;justify-content:center}
+.sheet{position:relative;background:var(--bg);width:min(100%,900px);max-height:92vh;overflow:auto;display:grid;grid-template-columns:minmax(0,1fr);animation:up .25s ease-out}
+@media(min-width:700px){.ov{align-items:center;padding:24px}.sheet{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
+@keyframes up{from{transform:translateY(24px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.sheet{animation:none}}
+.shots-wrap{position:relative}
+.shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;background:var(--ph)}
+.shots img,.shots .phb{flex:0 0 100%;width:100%;aspect-ratio:3/4;object-fit:cover;scroll-snap-align:start;display:block}
+.phb{position:relative}
+.count{position:absolute;left:12px;bottom:12px;background:var(--ink);color:var(--bg);font-size:13px;padding:4px 8px}
+.info{padding:24px;display:flex;flex-direction:column;gap:10px}
+.info h2{margin:0;padding-right:48px;font:700 28px/1.1 'Space Grotesk',sans-serif;text-transform:uppercase}
+.note{margin:0;font-size:14px;color:var(--muted)}
+.x{position:absolute;top:10px;right:10px;z-index:2;width:44px;height:44px;border:0;background:var(--ink);color:var(--bg);display:grid;place-items:center;cursor:pointer}
+.x svg{width:20px;height:20px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+{
+const app = document.getElementById('app');
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let items = [], state = 'loading', openIdx = -1;
+
+const ICON = {
+  wa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>',
+  ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>',
+  sh: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
+  x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+};
+
+const waLink = text => {
+  const n = String(CONFIG.WA || '').replace(/\D/g, '').replace(/^0/, '62');
+  return n ? 'https://wa.me/' + n + (text ? '?text=' + encodeURIComponent(text) : '') : '';
+};
+const igLink = () => { const h = String(CONFIG.IG || '').replace(/^@/, '').trim(); return h ? 'https://instagram.com/' + encodeURIComponent(h) : ''; };
+const shLink = () => { const u = String(CONFIG.SHOPEE || '').trim(); return /^https?:\/\//i.test(u) ? u : ''; };
+
+function buttons(text) {
+  const L = [['WhatsApp', waLink(text), ICON.wa], ['Instagram', igLink(), ICON.ig], ['Shopee', shLink(), ICON.sh]];
+  return L.filter(x => x[1]).map((x, i) => '<a class="btn' + (i === 0 ? ' solid' : '') + '" href="' + esc(x[1]) + '" target="_blank" rel="noopener">' + x[2] + x[0] + '</a>').join('');
+}
+
+function parseCSV(text) {
+  const rows = []; let row = [], cell = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; }
+      else cell += c;
+    } else if (c === '"') q = true;
+    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === '\n') { row.push(cell); rows.push(row); row = []; cell = ''; }
+    else if (c !== '\r') cell += c;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+
+function photoUrl(name) {
+  const n = name.trim();
+  if (!n) return '';
+  if (/^https?:\/\//i.test(n)) return n;
+  return CONFIG.FOTO_FOLDER + n.split('/').map(encodeURIComponent).join('/');
+}
+
+function toItems(rows) {
+  if (!rows.length) return [];
+  const head = rows[0].map(h => h.trim().toLowerCase());
+  const col = k => head.indexOf(k);
+  const get = (r, k) => { const i = col(k); return i < 0 ? '' : String(r[i] || '').trim(); };
+  return rows.slice(1).map(r => ({
+    nama: get(r, 'nama'), size: get(r, 'size'), kondisi: get(r, 'kondisi'),
+    foto: get(r, 'foto').split(/[,\n]/).map(photoUrl).filter(Boolean),
+    status: get(r, 'status').toLowerCase()
+  })).filter(it => (it.nama || it.foto.length) && it.status !== 'sold');
+}
+
+const meta = it => [it.size ? 'Size ' + esc(it.size) : '', esc(it.kondisi)].filter(Boolean).join(' · ');
+
+function card(it, i) {
+  const p = it.foto[0];
+  let h = '<article class="card"><button class="pic" data-open="' + i + '" aria-label="Lihat ' + esc(it.nama || 'item') + '">';
+  h += p ? '<img src="' + esc(p) + '" alt="" loading="lazy">' : '<span class="ph">Foto menyusul</span>';
+  h += '<span class="tag">1 pcs</span></button><h3>' + esc(it.nama || 'Tanpa nama') + '</h3>';
+  const m = meta(it); if (m) h += '<p class="meta">' + m + '</p>';
+  return h + '</article>';
+}
+
+function detail(it) {
+  const ps = it.foto;
+  let h = '<div class="ov" data-close="1"><div class="sheet" role="dialog" aria-modal="true" aria-label="' + esc(it.nama || 'Detail item') + '">';
+  h += '<button class="x" data-close="1" aria-label="Tutup">' + ICON.x + '</button><div class="shots-wrap"><div class="shots">';
+  h += ps.length ? ps.map((p, i) => '<img src="' + esc(p) + '" alt="' + esc((it.nama || 'Item') + ' foto ' + (i + 1)) + '">').join('') : '<div class="phb"><span class="ph">Foto menyusul</span></div>';
+  h += '</div>' + (ps.length > 1 ? '<span class="count">' + ps.length + ' foto, geser</span>' : '') + '</div>';
+  h += '<div class="info"><h2>' + esc(it.nama || 'Tanpa nama') + '</h2>';
+  const m = meta(it); if (m) h += '<p class="meta">' + m + '</p>';
+  h += '<p class="note">Cuma ada 1 pcs. Kondisi sesuai foto.</p>';
+  return h + '<div class="btns">' + buttons('Halo Dapper Digs, aku tertarik sama ' + (it.nama || 'item ini') + '. Masih ada?') + '</div></div></div></div>';
+}
+
+function render() {
+  const logo = CONFIG.LOGO ? '<img class="logo" src="' + esc(CONFIG.LOGO) + '" alt="Dapper Digs" onerror="this.remove()">' : '<span></span>';
+  let lede = 'Memuat katalog...';
+  if (state === 'error') lede = 'Katalog gagal dimuat. Coba muat ulang halaman ini.';
+  if (state === 'ready') lede = items.length ? items.length + ' piece tersedia. Tiap item cuma ada satu, kondisi asli apa adanya.' : 'Belum ada piece yang tersedia. Pantau Instagram untuk drop berikutnya.';
+  let h = '<header class="top"><div class="wrap row">' + logo + '<nav class="btns" aria-label="Kontak dan toko">' + buttons('Halo Dapper Digs!') + '</nav></div></header>';
+  h += '<section class="wrap hero"><p class="handle">@' + esc(String(CONFIG.IG || 'dapperdigs.stuff').replace(/^@/, '')) + '</p><h1>Katalog</h1><p class="lede" role="status">' + lede + '</p></section>';
+  h += '<main class="wrap main"><div class="grid">';
+  if (state === 'ready') h += items.length ? items.map(card).join('') : '<p class="empty">Katalog sedang kosong.</p>';
+  h += '</div></main>';
+  h += '<footer class="foot"><div class="wrap row"><div><h2>Naksir satu?</h2><p>Order lewat WhatsApp, DM Instagram, atau checkout di Shopee.</p></div><nav class="btns" aria-label="Kontak dan toko (bawah)">' + buttons('Halo Dapper Digs!') + '</nav></div></footer>';
+  if (openIdx >= 0 && items[openIdx]) h += detail(items[openIdx]);
+  app.innerHTML = h;
+  document.documentElement.classList.toggle('lock', openIdx >= 0);
+}
+
+app.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]');
+  if (o) { openIdx = +o.dataset.open; render(); return; }
+  const c = e.target.closest('[data-close]');
+  if (c && (!c.classList.contains('ov') || e.target === c)) { openIdx = -1; render(); }
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && openIdx >= 0) { openIdx = -1; render(); } });
+
+render();
+
+(async () => {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 10000);
+  try {
+    if (!/^https:\/\//.test(CONFIG.SHEET_CSV)) throw new Error('no sheet');
+    const res = await fetch(CONFIG.SHEET_CSV, {cache: 'no-store', signal: ctrl.signal});
+    if (!res.ok) throw new Error('http ' + res.status);
+    items = toItems(parseCSV(await res.text()));
+    state = 'ready';
+  } catch (err) {
+    state = 'error';
+  }
+  clearTimeout(timer);
+  render();
+})();
+}
+</script>
+</body>
+</html>
