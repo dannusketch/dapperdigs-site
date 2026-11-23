@@ -173,12 +173,12 @@ function render() {
   let lede = 'Memuat katalog...';
   if (state === 'error') lede = 'Katalog gagal dimuat. Coba muat ulang halaman ini.';
   if (state === 'ready') lede = items.length ? items.length + ' piece tersedia. Tiap item cuma ada satu, kondisi asli apa adanya.' : 'Belum ada piece yang tersedia. Pantau Instagram untuk drop berikutnya.';
-  let h = '<header class="top"><div class="wrap row">' + logo + '<nav class="btns" aria-label="Kontak dan toko">' + buttons('Halo Dapper Digs!') + '</nav></div></header>';
+  let h = '<header class="top"><div class="wrap row">' + logo + '<nav class="btns" aria-label="Kontak dan toko">' + buttons('Halo dapperdigs!') + '</nav></div></header>';
   h += '<section class="wrap hero"><p class="handle">@' + esc(String(CONFIG.IG || 'dapperdigs.stuff').replace(/^@/, '')) + '</p><h1>Katalog</h1><p class="lede" role="status">' + lede + '</p></section>';
   h += '<main class="wrap main"><div class="grid">';
   if (state === 'ready') h += items.length ? items.map(card).join('') : '<p class="empty">Katalog sedang kosong.</p>';
   h += '</div></main>';
-  h += '<footer class="foot"><div class="wrap row"><div><h2>Naksir satu?</h2><p>Order lewat WhatsApp, DM Instagram, atau checkout di Shopee.</p></div><nav class="btns" aria-label="Kontak dan toko (bawah)">' + buttons('Halo Dapper Digs!') + '</nav></div></footer>';
+  h += '<footer class="foot"><div class="wrap row"><div><h2>Naksir satu?</h2><p>Order lewat WhatsApp, DM Instagram, atau checkout di Shopee.</p></div><nav class="btns" aria-label="Kontak dan toko (bawah)">' + buttons('Halo dapperdigs!') + '</nav></div></footer>';
   if (openIdx >= 0 && items[openIdx]) h += detail(items[openIdx]);
   app.innerHTML = h;
   document.documentElement.classList.toggle('lock', openIdx >= 0);
